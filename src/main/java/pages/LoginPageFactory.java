@@ -1,4 +1,4 @@
-package helpres;
+package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +14,7 @@ public class LoginPageFactory {
     @FindBy(css = "button[type='submit']")
     WebElement loginButton;
 
-    public void loginFactory(String user, String pass){
+    public void loginFactory(String user, String pass) {
         userName.sendKeys(user);
         password.sendKeys(pass);
         loginButton.click();

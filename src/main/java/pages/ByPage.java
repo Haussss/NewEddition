@@ -1,4 +1,4 @@
-package helpres;
+package pages;
 
 
 import org.openqa.selenium.By;
@@ -14,7 +14,8 @@ public class ByPage {
     public ByPage(WebDriver driver) {
         this.driver = driver;
     }
-    public void login(String user, String pass){
+
+    public void login(String user, String pass) {
         driver.findElement(userName).sendKeys(user);
         driver.findElement(pswdFied).sendKeys(pass);
         driver.findElement(button).click();

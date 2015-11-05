@@ -1,11 +1,11 @@
-package helpres;
+package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage {
 
-   // public class LogOutPageFactorty {
+    // public class LogOutPageFactorty {
 //        @CacheLookup
 //        @FindBy(id = "username")
 //        WebElement userName;
@@ -16,16 +16,16 @@ public class HomePage {
 //        @FindBy(css = "button[type='submit']")
 //        WebElement loginButton;
 
-        @FindBy(css = "#button[href='/logout']")
-        WebElement logOutButton;
+    @FindBy(css = "#button[href='/logout']")
+    WebElement logOutButton;
 
-        @FindBy(id = "flash" )
-        WebElement logoutMessage;
+    @FindBy(id = "flash")
+    WebElement logoutMessage;
 
-        public void logout(){
-            logOutButton.click();
-
-        }
+    public void logout() {
+        logOutButton.click();
 
     }
+
+}
 

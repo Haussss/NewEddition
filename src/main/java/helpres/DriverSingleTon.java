@@ -7,32 +7,37 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class DriverSingleTon {
     private static WebDriver driver;
-    private DriverSingleTon(){
+
+    private DriverSingleTon() {
 
     }
-    public static WebDriver getDrivet(){
-        if (driver!=null){
+
+    public static WebDriver getDrivet() {
+        if (driver != null) {
             return driver;
-        }else {
+        } else {
             initDriver("default");
             return driver;
         }
     }
-    public static void quit(){
-        if(driver!=null){
+
+    public static void quit() {
+        if (driver != null) {
             driver.quit();
         }
     }
+
     private static void initDriver(String browser) {
-        String browserName = System.getProperty("browser",browser);
-            switch (browserName){
-                case "chrome": default:
-                    driver = new ChromeDriver();
-                case "firefox":
-                    driver = new FirefoxDriver();
-                case "IE":
-                    driver = new InternetExplorerDriver();
-            }
+        String browserName = System.getProperty("browser", browser);
+        switch (browserName) {
+            case "chrome":
+            default:
+                driver = new ChromeDriver();
+            case "firefox":
+                driver = new FirefoxDriver();
+            case "IE":
+                driver = new InternetExplorerDriver();
+        }
     }
 
 }
