@@ -8,7 +8,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.*;
-
 import java.util.concurrent.TimeUnit;
 
 public class InternetTest {
@@ -21,6 +20,7 @@ public class InternetTest {
     private final String USER_NAME ="tomsmith";
     private final String PASSWORD ="SuperSecretPassword!";
     private UIMapLoginPage loginPagee;
+
     @BeforeMethod
     public void setup() {
         //  driver = new ChromeDriver();
@@ -45,11 +45,9 @@ public class InternetTest {
     @Test
     public void loginTest(){
         driver.findElement(By.linkText("Form Authentication")).click();
-        loginPage = new ByPage(driver);
         loginPage.login(USER_NAME,PASSWORD);
         Assert.assertTrue(driver.findElement(By.cssSelector("#flash.success")).isDisplayed());
         Assert.assertTrue(driver.findElement(By.cssSelector("a[href='/logout']")).isDisplayed());
-
     }
     @Test
 
@@ -57,17 +55,14 @@ public class InternetTest {
         loginFactory.loginFactory(USER_NAME, PASSWORD);
         Assert.assertTrue(driver.findElement(By.cssSelector("#flash.success")).isDisplayed());
         Assert.assertTrue(driver.findElement(By.cssSelector("a[href='logout']")).isDisplayed());
-
     }
     @Test
 
     public void LogoutFactoryTest(){
+        driver.findElement(By.linkText("Form Authentication")).click();
         loginFactory.loginFactory(USER_NAME, PASSWORD);
         homePage.logout();
         Assert.assertTrue(driver.findElement(By.cssSelector("#flash.success")).isDisplayed());
-       // Assert.assertTrue(driver.findElement(getClass(HomePage.logoutMessage)).isDisplayed());
-       // Assert.assertTrue(driver.findElement(By.cssSelector("a[href='/logout']")).isDisplayed());
-
     }
     @Test
 
